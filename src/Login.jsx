@@ -1,17 +1,20 @@
 import cat from "./assets/cat.png";
+import { Link } from 'react-router-dom';
+
 
 function Login() {
+
   return (
     <>
       <div class="container bg-white mx-auto w-[450px] p-1 rounded mt-[25vh] ">
         <div class="container mx-auto flex items-center justify-center mb-[5vh] mt-[50px]">
           <img class="w-1/4 mx-auto p-0 mr-3" src={cat} alt="" />
-          <h1 class="text-black mx-auto p-0 ml-3">WHEAK</h1>
+          <h1 class="text-black mx-auto p-0 ml-3 text-[35px] font-px">WHEAK</h1>
         </div>
 
-        <h2 class="flex justify-center items-center mb-[3vh]">User Data</h2>
+        <h2 class="flex justify-center items-center mb-[3vh] font-bold">User Data</h2>
 
-        <form class="ml-[10vh]" action="">
+        <form class="ml-[10vh]" action=""> 
           <div>
             <label htmlFor="">Usuario</label>
             <input
@@ -28,12 +31,16 @@ function Login() {
           </div>
           <div class="flex justify-center">
             <button
-              class="bg-[#313866] w-1/4  rounded ml-[-10vh] mb-[50px] text-white"
+              class="bg-[#313866] w-1/4  rounded ml-[-10vh] mb-[20px] text-white"
               type="submit"
-            >Entrar
+            > <Link to="/lobby">Entrar</Link>
             </button>
           </div>
         </form>
+
+        <div class="flex items-center justify-center mb-[50px]">
+        <p>Crea una cuenta <Link class="underline" to="/register" >Aqui</Link></p>
+      </div>
       </div>
     </>
   );

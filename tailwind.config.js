@@ -5,6 +5,8 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily:{'px':['Common Pixel']},
+    
     extend: {},
   },
   plugins: [],
