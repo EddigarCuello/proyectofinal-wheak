@@ -26,10 +26,10 @@ export function PopupLobby() {
       {isVisible && (
         <div className="Opciones-perfil border border-black w-[250px] h-[150px] absolute bg-[white] top-[70px] right-[40px] flex flex-col justify-center items-center rounded-[15px]">
           <Link to="/perfil">
-            <i class="fa-solid fa-person mb-[45%]"> Perfil</i>
+            <i class="fa-solid fa-person mb-[25%]"> Perfil</i>
           </Link>
           <Link to="/">
-            <i class="fa-solid fa-right-to-bracket  "> Cerrar Sesion</i>
+            <i class="fa-solid fa-right-to-bracket mt-[20%] "> Cerrar Sesion</i>
           </Link>
         </div>
       )}
@@ -58,10 +58,10 @@ export function PopupPerfil() {
       {isVisible && (
         <div className="Opciones-perfil border border-black w-[250px] h-[150px] absolute bg-[white] top-[70px] right-[40px] flex flex-col justify-center items-center rounded-[15px]">
           <Link to="/lobby">
-            <i class="fa-solid fa-house mb-[45%]">Lobby</i>
+            <i class="fa-solid fa-house pb-[25%]">Lobby</i>
           </Link>
           <Link to="/">
-            <i class="fa-solid fa-right-to-bracket  "> Cerrar Sesion</i>
+            <i class="fa-solid fa-right-to-bracket mt-[20%]  "> Cerrar Sesion</i>
           </Link>
         </div>
       )}
