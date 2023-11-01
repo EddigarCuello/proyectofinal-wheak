@@ -26,10 +26,10 @@ export function PopupLobby() {
       {isVisible && (
         <div className="Opciones-perfil border border-black w-[250px] h-[150px] absolute bg-[white] top-[70px] right-[40px] flex flex-col justify-center items-center rounded-[15px]">
           <Link to="/perfil">
-            <p className="underline mb-[20px]">Perfil</p>
+            <i class="fa-solid fa-person mb-[45%]"> Perfil</i>
           </Link>
           <Link to="/">
-            <p className="underline">Cerrar Sesion</p>
+            <i class="fa-solid fa-right-to-bracket  "> Cerrar Sesion</i>
           </Link>
         </div>
       )}
@@ -58,10 +58,10 @@ export function PopupPerfil() {
       {isVisible && (
         <div className="Opciones-perfil border border-black w-[250px] h-[150px] absolute bg-[white] top-[70px] right-[40px] flex flex-col justify-center items-center rounded-[15px]">
           <Link to="/lobby">
-            <p className="underline mb-[20px]">Lobby</p>
+            <i class="fa-solid fa-house mb-[45%]">Lobby</i>
           </Link>
           <Link to="/">
-            <p className="underline">Cerrar Sesion</p>
+            <i class="fa-solid fa-right-to-bracket  "> Cerrar Sesion</i>
           </Link>
         </div>
       )}
@@ -162,7 +162,7 @@ export function Chats() {
               </div>
             ))}
             <input
-            className="border border-black  w-[99.5%] absolute bottom-0 outline-none ring-0 pl-[6px]"
+              className="border border-black  w-[99.5%] absolute bottom-0 outline-none ring-0 pl-[6px]"
               type="text"
               placeholder="Escribe algo..."
             />
@@ -172,7 +172,6 @@ export function Chats() {
     </>
   );
 }
-
 
 export function Notificaciones() {
   const [isVisible, setIsVisible] = useState(false);
@@ -187,26 +186,38 @@ export function Notificaciones() {
 
   return (
     <div>
-     <i onClick={Notificaciones} className="fa-solid fa-bell ml-[1vw] mr-[20px] text-[3ch] cursor-pointer"></i>
+      <i
+        onClick={Notificaciones}
+        className="fa-solid fa-bell ml-[1vw] mr-[20px] text-[3ch] cursor-pointer"
+      ></i>
 
       {isVisible && (
         <div className="Opciones-perfil border border-black w-[250px] h-[150px] absolute bg-[white] top-[75px] left-[120px] flex flex-col rounded-[15px] overflow-x-auto overflow-y-auto p-[10px]  ">
           <div className="flex flex-col items-center">
-            <h2 className="mb-[10px] text-[20px] border border-b-black">Notificaciones</h2>
-          <p className="mb-[10px] bg-[#888888] rounded p-1">Has Recibido un mensaje</p>
-            <p className="mb-[10px] bg-[#888888] rounded p-1">Has Recibido un mensaje</p>
-            <p className="mb-[10px] bg-[#888888] rounded p-1">Has Recibido un mensaje</p>
-            <p className="mb-[10px] bg-[#888888] rounded p-1">Has Recibido un mensaje</p>
-            <p className="mb-[10px] bg-[#888888] rounded p-1">Has Recibido un mensaje</p>
-            <p className="mb-[10px] bg-[#888888] rounded p-1">Has Recibido un mensaje</p>
-  
+            <h2 className="mb-[10px] text-[20px] border border-b-black">
+              Notificaciones
+            </h2>
+            <p className="mb-[10px] bg-[#888888] rounded p-1">
+              Has Recibido un mensaje
+            </p>
+            <p className="mb-[10px] bg-[#888888] rounded p-1">
+              Has Recibido un mensaje
+            </p>
+            <p className="mb-[10px] bg-[#888888] rounded p-1">
+              Has Recibido un mensaje
+            </p>
+            <p className="mb-[10px] bg-[#888888] rounded p-1">
+              Has Recibido un mensaje
+            </p>
+            <p className="mb-[10px] bg-[#888888] rounded p-1">
+              Has Recibido un mensaje
+            </p>
+            <p className="mb-[10px] bg-[#888888] rounded p-1">
+              Has Recibido un mensaje
+            </p>
           </div>
- 
-
-
         </div>
       )}
     </div>
   );
 }
-
