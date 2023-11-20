@@ -10,23 +10,43 @@ function Register() {
   const [datosRegistro, setDatosRegistro] = useState({
     nombre: '',
     apellido: '',
-    fechaNacimiento: '',
+    fechaNacimiento: new Date(),
     usuario: '',
     contraseña: '',
     correo: ''
   });
 
-  // Manejador para cambios en los campos del formulario
   const handleChange = (campo, valor) => {
     setDatosRegistro({ ...datosRegistro, [campo]: valor });
   };
 
-  // Manejador para el clic en el botón de registro
-  const handleClickRegistro = () => {
-    // Aquí puedes agregar lógica adicional si es necesario
-    console.log('Datos del formulario:', datosRegistro);
-  };
+  const handleClickRegistro = async () => {
+    try {
+      const registroResponse = await fetch('http://localhost:3000/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datosRegistro),
+      });
 
+      if (!registroResponse.ok) {
+        // Manejo de errores del servidor
+        const errorData = await registroResponse.json();
+        throw new Error(errorData.message || 'Error desconocido en el servidor');
+      }
+
+      const registroData = await registroResponse.json();
+      console.log('Respuesta del servidor:', registroData);
+
+      // Redirección o cualquier otra acción después del registro exitoso
+      // Por ejemplo, podrías usar react-router-dom para redirigir a la página de inicio de sesión
+      // history.push('/login');
+    } catch (error) {
+      console.error('Error al intentar registrar el usuario:', error.message);
+      // Puedes mostrar un mensaje de error al usuario si lo deseas
+    }
+  };
   return (
     <>
       <div className="container bg-white mx-auto w-[500px] p-1 rounded mt-[7vh] ">
@@ -38,7 +58,6 @@ function Register() {
         <h2 className="flex justify-center items-center mb-[3vh] font-bold">REGISTRO</h2>
 
         <form className="ml-[10vh]" action="">
-          {/* Utiliza tu componente CampoFormulario para cada campo del formulario */}
           <CampoFormulario
             etiqueta="Nombre"
             type="text"
@@ -51,11 +70,11 @@ function Register() {
             value={datosRegistro.apellido}
             onChange={(valor) => handleChange('apellido', valor)}
           />
-          <CampoFormulario
-            etiqueta="Fecha de nacimiento"
+          {/* Cambiado a un campo de fecha HTML nativo */}
+          <input
             type="date"
             value={datosRegistro.fechaNacimiento}
-            onChange={(valor) => handleChange('fechaNacimiento', valor)}
+            onChange={(e) => handleChange('fechaNacimiento', e.target.value)}
           />
           <CampoFormulario
             etiqueta="Usuario"
@@ -65,7 +84,7 @@ function Register() {
           />
           <CampoFormulario
             etiqueta="Contraseña"
-            type="text"
+            type="password"
             value={datosRegistro.contraseña}
             onChange={(valor) => handleChange('contraseña', valor)}
           />
